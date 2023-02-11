@@ -28,7 +28,7 @@ public class Subscription {
     private String token;
     private com.google.protobuf.ByteString data;
 
-    Subscription(final Client client, final String channel, final SubscriptionEventListener listener, final SubscriptionOptions options) {
+    Subscription(final Client client, final String channel, final SubscriptionOptions options, final SubscriptionEventListener listener) {
         this.client = client;
         this.channel = channel;
         this.listener = listener;
@@ -38,10 +38,6 @@ public class Subscription {
         if (opts.getData() != null) {
             this.data = com.google.protobuf.ByteString.copyFrom(opts.getData());
         }
-    }
-
-    Subscription(final Client client, final String channel, final SubscriptionEventListener listener) {
-        this(client, channel, listener, new SubscriptionOptions());
     }
 
     void setState(SubscriptionState state) {

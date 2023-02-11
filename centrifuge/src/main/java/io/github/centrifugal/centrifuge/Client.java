@@ -528,7 +528,7 @@ public class Client {
             if (this.subs.get(channel) != null) {
                 throw new DuplicateSubscriptionException();
             }
-            sub = new Subscription(Client.this, channel, listener, options);
+            sub = new Subscription(Client.this, channel, options, listener);
             this.subs.put(channel, sub);
         }
         return sub;
